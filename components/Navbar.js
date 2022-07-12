@@ -14,12 +14,12 @@ function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div>
-			<nav className=" shadow-sm fixed w-full z-10">
+			<nav className="fixed z-50 w-full bg-white shadow-sm">
 				<div className="w-full">
-					<div className="flex items-center h-20 w-full">
-						<div className="flex items-center  mx-20  justify-between w-full">
-							<div className="flex justify-center items-center flex-shrink-0 ">
-								<div className="hidden md:block font-bold text-xl cursor-pointer">
+					<div className="flex items-center w-full h-20">
+						<div className="flex items-center justify-between w-full mx-20">
+							<div className="flex items-center justify-center flex-shrink-0 ">
+								<div className="hidden text-xl font-bold cursor-pointer md:block">
 									<ul className="flex mr-1.5">
 										<li><Image src={Discord} alt="Discord" /></li>
 										<li className="ml-8"><Image src={Twitter} alt="Twitter" /></li>
@@ -27,8 +27,8 @@ function Navbar() {
 									</ul>
 								</div>
 							</div>
-							<div className="flex justify-center items-center flex-shrink-0 md:mr-8 ">
-								<h1 className=" font-bold text-xl cursor-pointer w-52">
+							<div className="flex items-center justify-center flex-shrink-0 md:mr-8 ">
+								<h1 className="text-xl font-bold cursor-pointer w-52">
 								<Image src={Logo} alt=""/>
 								</h1>
 							</div>
@@ -39,25 +39,25 @@ function Navbar() {
 								smooth={true}
 								offset={50}
 								duration={500}
-								className="  flex items-center justify-center space-x-4 cursor-pointer rounded-xl bg-primary text-white w-207 h-56 px-3 py-2 text-sm font-medium"
+								className="flex items-center justify-center h-56 px-3 py-2 space-x-4 text-sm font-medium text-white cursor-pointer rounded-xl bg-primary w-207"
 								>
 									<h1 className="mr-4">Connet Wallet</h1>
 									<Image className="mt-6" src={Wallet} alt="wallet" />
 								</Link>
 							</div>
 						</div>
-						{/* <div className="mr-10 flex md:hidden ">
+						{/* <div className="flex mr-10 md:hidden ">
 							<button
 								onClick={() => setIsOpen(!isOpen)}
 								type="button"
-								className="bg-primary inline-flex items-center justify-center p-2 rounded-md text-white  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
+								className="inline-flex items-center justify-center p-2 text-white rounded-md bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
 								aria-controls="mobile-menu"
 								aria-expanded="false"
 							>
 								<span className="sr-only">Open main menu</span>
 								{!isOpen ? (
 									<svg
-										className="block h-6 w-6"
+										className="block w-6 h-6"
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
 										viewBox="0 0 24 24"
@@ -73,7 +73,7 @@ function Navbar() {
 									</svg>
 								) : (
 									<svg
-										className="block h-6 w-6"
+										className="block w-6 h-6"
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
 										viewBox="0 0 24 24"
@@ -106,7 +106,7 @@ function Navbar() {
 						<div className="md:hidden" id="mobile-menu">
 							<div
 								ref={ref}
-								className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3"
+								className="px-2 pt-2 pb-3 space-y-1 bg-white sm:px-3"
 							>
 								<Link
 									href="/home"
@@ -115,7 +115,7 @@ function Navbar() {
 									smooth={true}
 									offset={50}
 									duration={500}
-									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+									className="block px-3 py-2 text-base font-medium text-black rounded-md cursor-pointer hover:bg-blue-600 hover:text-white"
 								>
 									Home
 								</Link>
@@ -126,7 +126,7 @@ function Navbar() {
 									smooth={true}
 									offset={50}
 									duration={500}
-									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+									className="block px-3 py-2 text-base font-medium text-black rounded-md cursor-pointer hover:bg-blue-600 hover:text-white"
 								>
 									About
 								</Link>
@@ -138,7 +138,7 @@ function Navbar() {
 									smooth={true}
 									offset={50}
 									duration={500}
-									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+									className="block px-3 py-2 text-base font-medium text-black rounded-md cursor-pointer hover:bg-blue-600 hover:text-white"
 								>
 									Projects
 								</Link>
@@ -149,7 +149,7 @@ function Navbar() {
 									smooth={true}
 									offset={50}
 									duration={500}
-									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+									className="block px-3 py-2 text-base font-medium text-black rounded-md cursor-pointer hover:bg-blue-600 hover:text-white"
 								>
 									Services
 								</Link>
@@ -161,7 +161,7 @@ function Navbar() {
 									smooth={true}
 									offset={50}
 									duration={500}
-									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+									className="block px-3 py-2 text-base font-medium text-black rounded-md cursor-pointer hover:bg-blue-600 hover:text-white"
 								>
 									Contact
 								</Link>

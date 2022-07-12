@@ -6,15 +6,10 @@ import RotateIcon from "../../public/Rotate/RotateImage.svg";
 
 function RotateBadge() {
 	return (
-        <div>
-        <div id="container">
-          <div id="circle">
-           <Image src={RotateIcon} alt="Awaken Badge" />
-          </div>
+        <div id="circle" className="w-24 h-24">
+          <Image src={RotateIcon} alt="Awaken Badge" />
         </div>
-      </div>
- 
-	);
+  );
 }
 
 export default RotateBadge;

@@ -2,73 +2,138 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-
 // RotateBadge
 import RotateBadge from "../components/Fragment/CircleImage";
 // Icons
 import ImageIcon from "../public/icons/image.svg";
-
+import DOMPurify from "dompurify";
 // Fetch Data
 function StackedCard() {
-    const [data, setData] = useState(null)
-    const [isLoading, setLoading] = useState(false)
-  
-    useEffect(() => {
-      setLoading(true)
-      fetch('/api/data')
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data)
-          setLoading(false)
-        })
-    }, [])
-  
-    if (isLoading) return <p>Loading StackedCard</p>
-    if (!data) return <p>No data</p>
-    
-	return (
-		<div className="flex justify-center min-h-screen bg-purple items-center text-white font-Poppins">
-            <div className="text-center font-V-Bold">
-	            <h1 className="mb-20">{data.stackHeader}</h1>
-            
-                <div className="flex relative grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-x-12">
-                    <div className="lg:w-2/4 md:w-2/4 sm:w-100 loading">
-                        <div>
-                        <div style={{ '--i': 1 }} className="top-10  transform transition-all  absolute -left-12 rounded-lg">
-                                <Image className="rotateImage" src={data.stack_image3} alt="Stackimage" width={300} height={300}/>
-                        </div>
-                        <div style={{ '--i': 2 }} className="top-6 transform transition-all absolute  -left-16 rounded-lg">
-                                <Image className="rotateImage" src={data.stack_image2} alt="Stackimage" width={300} height={350}/>
-                        </div>
-                        <div style={{ '--i': 3 }} className=" -top-2 flex justify-center items-center  transform transition-all absolute  -left-28 rounded-lg">
-                                <Image className="rotateImage" src={data.stack_image1} alt="Stackimage" width={320} height={420}/>
-                        </div>
-                        <div style={{ '--i': 4 }} className="top-10  transform transition-all  absolute -left-12 rounded-lg">
-                                <Image className="rotateImage" src={data.stack_image3} alt="Stackimage" width={300} height={300}/>
-                        </div>
-                        <div style={{ '--i': 5 }}   className="top-6 transform transition-all absolute  -left-16 rounded-lg">
-                                <Image className="rotateImage" src={data.stack_image2} alt="Stackimage" width={300} height={350}/>
-                        </div>
-                        <div style={{ '--i': 6 }} className=" -top-2 flex justify-center items-center  transform transition-all absolute  -left-28 rounded-lg">
-                                <Image className="rotateImage" src={data.stack_image1} alt="Stackimage" width={320} height={420}/>
-                        </div>
-                        </div>
-                        <div className="relative right-64  top-346">
-                        <RotateBadge />
-                        </div>
-                    </div>
-                    
-                    <div className="lg:w-2/4 md:w-2/4 sm:w-100">
-                        <div className="flex justify-center font-32 text-white text-left lg:w-554 font-Poppins-Light ">
-                        {data.stackText}
-                        </div>
-                    </div>
-                </div>
+  const [data, setData] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
+  const [rotate, setRotate] = useState(false);
+  const sanitizer = DOMPurify.sanitize;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotate(true);
+      if (activeTab == 0) {
+        setActiveTab(1);
+      }
+      if (activeTab == 1) {
+        setActiveTab(2);
+      }
+      if (activeTab == 2) {
+        setActiveTab(0);
+      }
+      setTimeout(() => {
+        setRotate(false);
+      }, 4000);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [activeTab]);
+  useEffect(() => {
+    setLoading(true);
+    fetch("/api/data")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (isLoading) return <p>Loading StackedCard</p>;
+  if (!data) return <p>No data</p>;
+
+  return (
+    <div className="relative flex items-center justify-center overflow-hidden text-white pb-28 py-28 bg-purple font-Poppins">
+      <div className="text-center font-V-Bold">
+        <h1 className="mb-16 font-V-Bold text-36">{data[0].stackHeader}</h1>
+        <div className="relative flex grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-x-12">
+          <div className="mt-4 lg:w-2/4 md:w-2/4 sm:w-100 loading">
+            <ul className="relative flex justify-center w-full pt-8 pr-32 stackCards">
+              <li
+                className={`stack ${activeTab == 0 ? "active" : "inactive"} ${
+                  activeTab == 0 ? "li1" : activeTab == 1 ? "li3" : "li2"
+                }`}
+                onClick={() => setActiveTab(0)}
+              >
+                <Image
+                  className="object-cover"
+                  src={data[0].stack_image}
+                  alt="Stackimage"
+                  width={300}
+                  height={300}
+                />
+              </li>
+              <li
+                className={`stack ${activeTab == 1 ? "active" : "inactive"} ${
+                  activeTab == 1 ? "li1" : activeTab == 0 ? "li2" : "li3"
+                }`}
+                onClick={() => setActiveTab(1)}
+              >
+                <Image
+                  className="object-cover"
+                  src={data[1].stack_image}
+                  alt="Stackimage"
+                  width={300}
+                  height={300}
+                />
+              </li>
+              <li
+                className={`stack ${activeTab == 2 ? "active" : "inactive"} 
+                ${activeTab == 2 ? "li1" : activeTab == 1 ? "li2" : "li3"}`}
+                onClick={() => setActiveTab(2)}
+              >
+                <Image
+                  className="object-cover"
+                  src={data[2].stack_image}
+                  alt="Stackimage"
+                  width={300}
+                  height={300}
+                />
+              </li>
+            </ul>
+            <div
+              className={`absolute z-10 right-80 top-96 ${
+                rotate ? "rotate" : ""
+              }`}
+            >
+              <RotateBadge />
+            </div>
+          </div>
+
+          <div className="relative lg:w-2/4 md:w-2/4 sm:w-100">
+            <div className="relative flex justify-center overflow-hidden text-left text-white h-122 h-600 min font-32 lg:w-554 font-Poppins-Light">
+              {data.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={`absolute w-full stackInfo ${
+                      activeTab == index ? "active" : ""
+                    }`}
+                  >
+                    <h3 className="pb-4 text-lg font-bold uppercase">
+                      {item.stackTitle}
+                    </h3>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: sanitizer(item.stackText),
+                      }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <img
+          src="/Background/bt.svg"
+          className="absolute w-full opacity-20 top-2/4 st-img"
+        />
+      </div>
     </div>
-</div>
- 
-	);
+  );
 }
 
 export default StackedCard;
-
