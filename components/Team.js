@@ -28,18 +28,18 @@ function Team() {
   }, []);
 
   return (
-    <div className="relative flex justify-center py-32 overflow-hidden bg-team">
+    <div className="relative flex justify-center py-20 overflow-hidden md:py-32 bg-team">
       <div className="relative z-10 w-1200">
         <div className="flex justify-center">
           <h1 className="text-3xl text-center font-V-Bold">Our Team</h1>
         </div>
-        <div className="flex justify-center mt-10">
-          <ul className="mt-32 thumbs sm:rotate-180">
+        <div className="flex flex-col justify-center mt-10 md:flex-row">
+          <ul className="flex flex-row justify-center mt-4 md:mt-20 lg:mt-32 thumbs md:rotate-180 md:block">
             {data.map((item, index) => {
               return (
                 <li
                   key={index}
-                  className={`mb-4 rounded-full  border-5 w-60 h-60 ${
+                  className={`mx-2 sm-mx-0 mb-4 rounded-full  border-5 w-60 h-60 ${
                     activeThumb == index ? "border-orange" : "border-brown"
                   }`}
                 >
@@ -55,11 +55,11 @@ function Team() {
               );
             })}
           </ul>
-          <ul className="ml-12 slide-wrap">
+          <ul className="md:ml-12 slide-wrap">
             {data.map((item, index) => {
               return (
                 <li
-                  className={`h-40 flex py-20 slide w-full ${
+                  className={`h-40 flex py-12 md:py-20 slide w-full md:justify-center justify-start lg:items-center items-start ${
                     activeThumb == index ? "active" : ""
                   }`}
                   id={`slide-${index}`}
@@ -74,7 +74,7 @@ function Team() {
                       className="object-cover rounded-xl"
                     />
                   </div>
-                  <div className="flex items-center justify-center ml-24 text-left w-515">
+                  <div className="flex items-center justify-center ml-6 text-left md:ml-24 md:w-515">
                     <div>
                       <h1 className="text-2xl font-V-Bold">{item.jobTitle}</h1>
                       <h3 className="text-sm font-Poppins-Light">

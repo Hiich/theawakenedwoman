@@ -13,10 +13,10 @@ import AwakenedWoman from "../public/awakened/awakenedWoman.svg";
 
 function Footer() {
   return (
-    <div className="flex flex-col items-center justify-center py-20 overflow-hidden footer-wrapper">
-      <div className="w-1200">
+    <div className="flex flex-col items-center justify-center py-8 overflow-hidden md:py-20 footer-wrapper">
+      <div className="w-11/12 md:w-1200">
         <div className="flex flex-col items-center justify-center bg-no-repeat bg-purple rounded-2xl bg-footer-pattern">
-          <h1 className="pt-24 text-white pfont-normal tracking-headerSpace md:text-5xl font-V-Bold">
+          <h1 className="pt-24 text-3xl text-white pfont-normal tracking-headerSpace md:text-5xl font-V-Bold">
             Join our community
           </h1>
           <p className="text-center text-white font-Poppins font-extralight w-536">
@@ -51,13 +51,13 @@ function Footer() {
             />
           </div>
         </div>
-        <div className="w-11/12 h-1 mx-auto mt-16 border-t-2 rounded-sm opacity-5"></div>
+        <div className="w-11/12 mx-auto mt-2 border-t-2 rounded-sm md:mt-16 md:h-1 opacity-5"></div>
         <div className="flex items-center justify-center pt-5">
-          <p className="text-sm color-orange"> Ⓒ Awakened Woman</p>
-          <div className="w-2.5 h-2.5 rounded-full bg-brown mx-3.5"></div>
-          <p className="text-sm color-orange">All Rights Reserved</p>
-          <div className="w-2.5 h-2.5 rounded-full bg-brown mx-3.5"></div>
-          <p className="text-sm color-orange">Made by AdaIhueze</p>
+          <p className="text-xs md:text-sm color-orange"> Ⓒ Awakened Woman</p>
+          <div className="md:w-2.5 w-0.5 h-2.5 rounded-full bg-brown mx-3.5"></div>
+          <p className="text-xs md:text-sm color-orange">All Rights Reserved</p>
+          <div className="md:w-2.5 w-0.5 h-2.5 rounded-full bg-brown mx-3.5"></div>
+          <p className="text-xs md:text-sm color-orange">Made by AdaIhueze</p>
         </div>
       </div>
     </div>

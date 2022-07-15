@@ -48,10 +48,10 @@ function StackedCard() {
   return (
     <div className="relative flex items-center justify-center overflow-hidden text-white pb-28 py-28 bg-purple font-Poppins">
       <div className="text-center font-V-Bold">
-        <h1 className="mb-16 font-V-Bold text-36">{data[0].stackHeader}</h1>
-        <div className="relative flex grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-x-12">
-          <div className="mt-4 lg:w-2/4 md:w-2/4 sm:w-100 loading">
-            <ul className="relative flex justify-center w-full pt-8 pr-32 stackCards">
+        <h1 className="mb-4 text-3xl md:mb-16 font-V-Bold md:text-36">{data[0].stackHeader}</h1>
+        <div className="relative flex flex-col grid-cols-2 md:flex-row md:grid-cols-1 gap-x-12">
+          <div className="mt-4 lg:w-2/4 md:w-2/4 md:w-100 loading">
+            <ul className="relative flex justify-center w-full pr-12 md:pr-32 md:pt-8 stackCards">
               <li
                 className={`stack ${activeTab == 0 ? "active" : "inactive"} ${
                   activeTab == 0 ? "li1" : activeTab == 1 ? "li3" : "li2"
@@ -95,7 +95,7 @@ function StackedCard() {
               </li>
             </ul>
             <div
-              className={`absolute z-10 right-80 top-96 ${
+              className={`absolute z-10 lg:right-80 top-64 md:top-96 ${
                 rotate ? "rotate" : ""
               }`}
             >
@@ -103,7 +103,7 @@ function StackedCard() {
             </div>
           </div>
 
-          <div className="relative lg:w-2/4 md:w-2/4 sm:w-100">
+          <div className="relative w-80 md:w-90 lg:w-2/4">
             <div className="relative flex justify-center overflow-hidden text-left text-white h-122 h-600 min font-32 lg:w-554 font-Poppins-Light">
               {data.map((item, index) => {
                 return (

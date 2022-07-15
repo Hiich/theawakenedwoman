@@ -31,7 +31,9 @@ function RoadMap() {
         <div className="flex justify-center ">
           <div className="text-center w-761">
             <h1 className="font-V-Bold text-36">{data.RM_Title}</h1>
-            <p className="text-xl font-Poppins-Light">{data.RM_Content}</p>
+            <p className="px-8 text-sm sm:text-xl font-Poppins-Light">
+              {data.RM_Content}
+            </p>
           </div>
         </div>
         <div id="roadmap">
@@ -101,7 +103,10 @@ function RoadMap() {
           </div>
         </div>
       </div>
-      <img src="/Background/RM_bg.svg" className="absolute w-full opacity-70 z- top-40" />
+      <img
+        src="/Background/RM_bg.svg"
+        className="absolute w-full opacity-70 z- top-40"
+      />
     </section>
   );
 }
