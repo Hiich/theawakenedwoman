@@ -31,7 +31,7 @@ function Team() {
     <div className="relative flex justify-center py-20 overflow-hidden md:py-32 bg-team">
       <div className="relative z-10 w-1200">
         <div className="flex justify-center">
-          <h1 className="text-3xl text-center font-V-Bold">Our Team</h1>
+          <h1 className="text-48 text-center font-V-Bold">Our Team</h1>
         </div>
         <div className="flex flex-col justify-center mt-10 md:flex-row">
           <ul className="flex flex-row justify-center mt-4 md:mt-20 lg:mt-32 thumbs md:rotate-180 md:block">

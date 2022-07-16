@@ -46,9 +46,9 @@ function StackedCard() {
   if (!data) return <p>No data</p>;
 
   return (
-    <div className="relative flex items-center justify-center overflow-hidden text-white pb-28 py-28 bg-purple font-Poppins">
+    <div className="relative flex items-center justify-center overflow-hidden text-white pb-28 py-28 bg-Secondpurple font-Poppins">
       <div className="text-center font-V-Bold">
-        <h1 className="mb-4 text-3xl md:mb-16 font-V-Bold md:text-36">{data[0].stackHeader}</h1>
+        <h1 className="mb-4 text-48 md:mb-16 font-V-Bold md:text-36">{data[0].stackHeader}</h1>
         <div className="relative flex flex-col grid-cols-2 md:flex-row md:grid-cols-1 gap-x-12">
           <div className="mt-4 lg:w-2/4 md:w-2/4 md:w-100 loading">
             <ul className="relative flex justify-center w-full pr-12 md:pr-32 md:pt-8 stackCards">
