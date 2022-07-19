@@ -9,21 +9,19 @@ import image5 from "../../public/stackImage/imageFive.png";
 
 function ScrollImage() {
   $(document).ready(function () {
-    if (window.innerWidth > 928) {
-      var che = document.getElementById("pslide-1");
-      if (che != null) {
-        var ypos, slide1, slide2;
-        function parallex() {
-          slide1 = document.getElementById("pslide-1");
-          slide2 = document.getElementById("pslide-2");
-          ypos = window.pageYOffset;
-          if (slide1 != undefined && slide2 != undefined) {
-            slide1.style.marginLeft = "+" + ypos * 0.14 + "px";
-            slide2.style.marginLeft = "-" + ypos * 0.14 + "px";
-          }
+    var che = document.getElementById("pslide-1");
+    if (che != null) {
+      var ypos, slide1, slide2;
+      function parallex() {
+        slide1 = document.getElementById("pslide-1");
+        slide2 = document.getElementById("pslide-2");
+        ypos = window.pageYOffset;
+        if (slide1 != undefined && slide2 != undefined) {
+          slide1.style.marginLeft = "+" + ypos * 0.14 + "px";
+          slide2.style.marginLeft = "-" + ypos * 0.14 + "px";
         }
-        window.addEventListener("scroll", parallex), false;
       }
+      window.addEventListener("scroll", parallex), false;
     }
   });
   return (
