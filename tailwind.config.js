@@ -3,7 +3,6 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      backgroundColor: {},
       backgroundImage: {
         "hero-pattern": "url('/Background/butterfly_background.svg')",
         "footer-pattern": "url('/Background/butterfly_group.svg')",
