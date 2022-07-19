@@ -3,6 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundColor: {},
       backgroundImage: {
         "hero-pattern": "url('/Background/butterfly_background.svg')",
         "footer-pattern": "url('/Background/butterfly_group.svg')",
@@ -19,7 +20,7 @@ module.exports = {
         headerText: "86px",
         32: "32px",
         36: "36px",
-        48: "48px"
+        48: "48px",
       },
       letterSpacing: {
         headerSpace: "0.539556px",
@@ -71,8 +72,7 @@ module.exports = {
       current: "currentColor",
       primary: "#EC8E4F",
       white: "#FFFFFF",
-      purple: "#9B478A",
-      Secondpurple: "#C66AE5",
+      purple: "#c66ae5",
       team: "#F8D4BC",
       brown: "#46331E",
       BB9061: "#BB9061",
