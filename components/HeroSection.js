@@ -25,7 +25,7 @@ function HeroSection() {
   if (!data) return <p>No data</p>;
   return (
     <>
-      <div className="flex flex-col items-center justify-center pt-64 text-center bg-16">
+      <div className="flex flex-col items-center justify-center pt-64 min-h-screen text-center bg-left-bottom bg-16 bg-no-repeat bg-hero-pattern">
         <h1 className="text-5xl font-normal md:text-6xl lg:text-headerText tracking-headerSpace font-V-Bold">
           {data.Hero_Title}
         </h1>
@@ -36,15 +36,11 @@ function HeroSection() {
           <h1 className="mr-4 text-center">{data.Hero_btn}</h1>
           <Image src={ImageIcon} alt="image icon" />
         </div>
-        <div className="w-full overflow-hidden">
+        
+      </div>
+      <div className="w-full overflow-hidden">
           <ScrollImage />
         </div>
-
-        <img
-          src="/Background/butterfly_background.svg"
-          className="absolute left-0 opacity-70 z- top-32"
-        />
-      </div>
     </>
   );
 }

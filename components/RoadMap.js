@@ -26,7 +26,7 @@ function RoadMap() {
   if (!data) return <p>No data</p>;
 
   return (
-    <section className="relative py-32 overflow-hidden text-center bg-no-repeat bg-size-cover">
+    <section className="relative min-h-screen pb-64 overflow-hidden text-center bg-no-repeat bg-size-cover  bg-no-repeat bg-RM-pattern absolute w-full z- top-40">
       <div>
         <div className="flex justify-center ">
           <div className="text-center w-761">
@@ -103,10 +103,10 @@ function RoadMap() {
           </div>
         </div>
       </div>
-      <img
+      {/* <img
         src="/Background/RM_bg.svg"
         className="absolute w-full opacity-70 z- top-40"
-      />
+      /> */}
     </section>
   );
 }

@@ -7,6 +7,8 @@ module.exports = {
         "hero-pattern": "url('/Background/butterfly_background.svg')",
         "footer-pattern": "url('/Background/butterfly_group.svg')",
         "RM-pattern": "url('/Background/RM_bg.svg')",
+        "ST-pattern": "url('/Background/bt.svg')",
+        "OT-pattern": "url('/Background/Ot_bg.svg')",
       },
       backgroundSize: {
         auto: "auto",

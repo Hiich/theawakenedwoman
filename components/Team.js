@@ -27,7 +27,7 @@ function Team() {
   }, []);
 
   return (
-    <div className="relative flex justify-center py-20 overflow-hidden md:py-32 bg-team">
+    <div className="relative flex justify-center py-20 overflow-hidden md:py-32 bg-team bg-no-repeat bg-OT-pattern ">
       <div className="relative z-10 w-1200">
         <div className="flex justify-center">
           <h1 className="text-center text-48 font-V-Bold">Our Team</h1>
@@ -109,10 +109,7 @@ function Team() {
           </ul>
         </div>
       </div>
-      <img
-        src="/Background/RM_bg.svg"
-        className="absolute z-0 w-full opacity-40 top-32"
-      />
+     
     </div>
   );
 }

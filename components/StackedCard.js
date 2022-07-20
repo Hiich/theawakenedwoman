@@ -46,7 +46,7 @@ function StackedCard() {
   if (!data) return <p>No data</p>;
 
   return (
-    <div className="relative flex items-center justify-center overflow-hidden text-white pb-28 py-28 bg-purple font-Poppins">
+    <div className="relative flex items-center justify-center min-h-screen bg-right overflow-hidden text-white pb-28 py-28 bg-purple bg-no-repeat bg-right-top bg-ST-pattern font-Poppins">
       <div className="text-center font-V-Bold">
         <h1 className="mb-4 md:text-48 md:mb-16 font-V-Bold text-36">
           {data[0].stackHeader}
@@ -129,10 +129,7 @@ function StackedCard() {
             </div>
           </div>
         </div>
-        <img
-          src="/Background/bt.svg"
-          className="absolute w-full opacity-20 top-2/4 st-img"
-        />
+     
       </div>
     </div>
   );
