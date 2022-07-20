@@ -16,6 +16,14 @@ import Marquee from "react-fast-marquee";
 function ScrollImage() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
+  const [sm, setSm] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 769) {
+      console.log("ye");
+      setSm(true);
+    }
+  }, []);
+
   return (
     <>
       {/* Right Slider */}
@@ -24,91 +32,259 @@ function ScrollImage() {
         id="pslide"
       >
         <Marquee gradientWidth={0} speed={20}>
-          <div className="flex items-center p-2">
-            <Image className="" src={image1} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image1}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image2} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image2}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image3} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image3}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image4} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image4}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image5} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image5}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image6} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image6}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image7} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image7}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image8} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image8}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image9} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image9}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image10} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image10}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image11} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image11}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image3} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image3}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image7} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image7}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image5} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image5}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
         </Marquee>
         <Marquee gradient={false} speed={20} direction="right">
-          <div className="flex items-center p-2">
-            <Image className="" src={image11} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image11}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image3} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image3}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image4} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image4}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image2} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image2}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image1} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image1}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image9} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image9}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image7} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image7}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image8} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image8}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image6} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image6}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image10} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image10}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image5} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image5}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image3} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image3}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image1} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image1}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
-          <div className="flex items-center p-2">
-            <Image className="" src={image8} alt="" width={210} height={220} />
+          <div className="flex items-center p-1 md:p-2">
+            <Image
+              className=""
+              src={image8}
+              alt=""
+              width={sm ? 140 : 210}
+              height={sm ? 150 : 220}
+            />
           </div>
         </Marquee>
       </div>
