@@ -6,7 +6,7 @@ import Image from "next/image";
 
 // Icons
 import Twitter from "../public/icons/twitter-logo.svg";
-import Linkedin from "../public/icons/linkedin.svg";
+import Linkedin from "../public/icons/Linkedin.svg";
 import Dribbble from "../public/icons/dribbble.svg";
 
 function Team() {
