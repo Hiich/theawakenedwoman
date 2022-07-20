@@ -15,7 +15,7 @@ function Footer() {
   return (
     <div className="flex flex-col items-center justify-center py-8 overflow-hidden md:py-20 footer-wrapper">
       <div className="w-11/12 md:w-1200">
-        <div className="flex flex-col items-center justify-center bg-no-repeat bg-purple rounded-2xl bg-footer-pattern">
+        <div className="flex flex-col items-center justify-center bg-no-repeat bg-purple rounded-2xl bg-footer-pattern sm:p-1.5">
           <h1 className="pt-24 text-3xl text-white pfont-normal tracking-headerSpace md:text-5xl font-V-Bold">
             Join our community
           </h1>
@@ -23,7 +23,7 @@ function Footer() {
             Iste animi consectetur dicta dolorem
           </p>
           <div className="flex items-center justify-center flex-shrink-0 mt-6">
-            <div className="text-xl font-bold cursor-pointer">
+            <div className="text-xl font-bold cursor-pointer" style={{'padding':'0.5rem'}}>
               <ul className="flex mr-px">
                 <li>
                   <Image src={Discord} alt="Discord" />
