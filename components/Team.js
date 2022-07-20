@@ -22,7 +22,6 @@ function Team() {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        console.log(data);
         setLoading(false);
       });
   }, []);

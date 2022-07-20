@@ -5,8 +5,8 @@ export default function handler(req, res) {
       name: "James Robinson",
       quote:
         "If your actions create a legacy that inspires others to dream more, learn more, do more...",
-      original: "/team/teamMember.png",
-      thumbnail: "/team/teamMember.png",
+      original: "/OurTeam/1.png",
+      thumbnail: "/OurTeam/1.png",
       socials: {
         linkedin: "icons/linkedin.svg",
         twitter: "icons/twitter-logo.svg",
@@ -18,8 +18,8 @@ export default function handler(req, res) {
       name: "Ebiwari Meshach",
       quote:
         "If your actions create a legacy that inspires others to dream more, learn more, do more...",
-      original: "/team/imageTwo.png",
-      thumbnail: "/team/imageTwo.png",
+      original: "/OurTeam/2.png",
+      thumbnail: "/OurTeam/2.png",
       socials: {
         linkedin: "icons/linkedin.svg",
         twitter: "icons/twitter-logo.svg",
@@ -31,8 +31,8 @@ export default function handler(req, res) {
       name: "Benjamin Onyebuchi",
       quote:
         "If your actions create a legacy that inspires others to dream more, learn more, do more...",
-      original: "/team/imageThree.png",
-      thumbnail: "/team/imageThree.png",
+      original: "/OurTeam/3.png",
+      thumbnail: "/OurTeam/3.png",
       socials: {
         linkedin: "icons/linkedin.svg",
         twitter: "icons/twitter-logo.svg",
@@ -44,8 +44,8 @@ export default function handler(req, res) {
       name: "Ada Ihueze",
       quote:
         "If your actions create a legacy that inspires others to dream more, learn more, do more...",
-      original: "/team/imageFour.png",
-      thumbnail: "/team/imageFour.png",
+      original: "/OurTeam/4.png",
+      thumbnail: "/OurTeam/4.png",
       socials: {
         linkedin: "icons/linkedin.svg",
         twitter: "icons/twitter-logo.svg",

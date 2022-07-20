@@ -1,376 +1,116 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import image1 from "../../public/stackImage/imageOne.png";
-import image2 from "../../public/stackImage/imageTwo.png";
-import image3 from "../../public/stackImage/imageThree.png";
-import image4 from "../../public/stackImage/imageFour.png";
-import image5 from "../../public/stackImage/imageFive.png";
-
+import image1 from "../../public/AutoslideImages/1.png";
+import image2 from "../../public/AutoslideImages/2.png";
+import image3 from "../../public/AutoslideImages/3.png";
+import image4 from "../../public/AutoslideImages/4.png";
+import image5 from "../../public/AutoslideImages/5.png";
+import image6 from "../../public/AutoslideImages/6.png";
+import image7 from "../../public/AutoslideImages/7.png";
+import image8 from "../../public/AutoslideImages/8.png";
+import image9 from "../../public/AutoslideImages/9.png";
+import image10 from "../../public/AutoslideImages/10.png";
+import image11 from "../../public/AutoslideImages/11.png";
+import Marquee from "react-fast-marquee";
 function ScrollImage() {
-  $(document).ready(function () {
-    var che = document.getElementById("pslide-1");
-    if (che != null) {
-      var ypos, slide1, slide2;
-      function parallex() {
-        slide1 = document.getElementById("pslide-1");
-        slide2 = document.getElementById("pslide-2");
-        ypos = window.pageYOffset;
-        if (slide1 != undefined && slide2 != undefined) {
-          slide1.style.marginLeft = "+" + ypos * 0.14 + "px";
-          slide2.style.marginLeft = "-" + ypos * 0.14 + "px";
-        }
-      }
-      window.addEventListener("scroll", parallex), false;
-    }
-  });
+  const [data, setData] = useState(null);
+  const [isLoading, setLoading] = useState(false);
   return (
     <>
       {/* Right Slider */}
-      <div className="relative grid w-full pt-40 m-auto overflow-hidden sm:pt-64 left-slider place-item-center">
-        <div
-          style={{ width: "calc(250px * 18)" }}
-          className="flex"
-          id="pslide-1"
-        >
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image1}
-              alt=""
-              width={200}
-              height={200}
-            />
+      <div
+        className="relative grid w-full pt-40 pb-4 m-auto overflow-hidden sm:pt-64 left-slider place-item-center"
+        id="pslide"
+      >
+        <Marquee gradientWidth={0} speed={20}>
+          <div className="flex items-center p-2">
+            <Image className="" src={image1} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image2}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image2} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image3}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image3} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image4}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image4} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image5}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image5} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image1}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image6} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image2}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image7} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image3}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image8} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4">
-            <Image
-              className="border-2 ScrollImage"
-              src={image4}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image9} alt="" width={210} height={220} />
           </div>
-
-          {/* Same 9 Slide */}
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image1}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image10} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image2}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image11} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image3}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image3} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image4}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image7} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image5}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image5} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image1}
-              alt=""
-              width={200}
-              height={200}
-            />
+        </Marquee>
+        <Marquee gradient={false} speed={20} direction="right">
+          <div className="flex items-center p-2">
+            <Image className="" src={image11} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image2}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image3} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image3}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image4} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image4}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image2} alt="" width={210} height={220} />
           </div>
-        </div>
-      </div>
-      {/* Left Slider */}
-      <div className="relative grid w-full py-2 m-auto overflow-hidden left-slider place-item-center">
-        <div
-          style={{ width: "calc(250px * 18)" }}
-          className="flex"
-          id="pslide-2"
-        >
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image1}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image1} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image2}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image9} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image3}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image7} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image4}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image8} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image5}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image6} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image1}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image10} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image2}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image5} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image3}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image3} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4">
-            <Image
-              className="border-2 ScrollImage"
-              src={image4}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image1} alt="" width={210} height={220} />
           </div>
-
-          {/* Same 9 Slide */}
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image1}
-              alt=""
-              width={200}
-              height={200}
-            />
+          <div className="flex items-center p-2">
+            <Image className="" src={image8} alt="" width={210} height={220} />
           </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image2}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image3}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image4}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image5}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </div>
-          <div className="mr-2 md:mr-4 ">
-            <Image
-              className="border-2 ScrollImage"
-              src={image1}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </div>
-          <div className="mr-2 md:mr-4">
-            <Image
-              className="border-2 ScrollImage"
-              src={image2}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </div>
-          <div className="mr-2 md:mr-4">
-            <Image
-              className="border-2 ScrollImage"
-              src={image3}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </div>
-          <div className="mr-2 md:mr-4">
-            <Image
-              className="border-2 ScrollImage"
-              src={image4}
-              alt=""
-              width={200}
-              height={200}
-            />
-          </div>
-        </div>
+        </Marquee>
       </div>
     </>
   );

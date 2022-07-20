@@ -1,18 +1,18 @@
 module.exports = {
   reactStrictMode: true,
-  
-}
+};
 
-const webpack = require('webpack')
+const webpack = require("webpack");
 
 module.exports = {
-    webpack: (config, { dev }) => {
-        config.plugins.push(
-            new webpack.ProvidePlugin({
-                '$': 'jquery',
-                'jQuery': 'jquery',
-            })
-        )
-        return config
-    }
-}
+  webpack: (config, { dev }) => {
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+      })
+    );
+    return config;
+  },
+};
