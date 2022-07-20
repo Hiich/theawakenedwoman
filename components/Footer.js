@@ -9,7 +9,7 @@ import Telegram from "../public/icons/telegram.svg";
 import Facebook from "../public/icons/facebook.svg";
 
 //AwakenedWoman
-import AwakenedWoman from "../public/awakened/awakenedWoman.svg";
+import AwakenedWoman from "../public/awakened/awakenedWomanImage.svg";
 
 function Footer() {
   return (
