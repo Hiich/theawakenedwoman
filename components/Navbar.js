@@ -21,15 +21,15 @@ function Navbar() {
               <div className="items-center justify-center flex-shrink-0 hidden md:flex">
                 <div className="hidden text-xl font-bold cursor-pointer md:block">
                   <ul className="flex mr-1.5">
-                    <li>
-                      <Image src={Discord} alt="Discord" />
-                    </li>
-                    <li className="ml-8">
-                      <Image src={Twitter} alt="Twitter" />
-                    </li>
-                    <li className="ml-8">
-                      <Image src={Instagram} alt="Instagram" />
-                    </li>
+                  <li>
+                  <a href="https://discord.gg/qnWpkv4tf8"><Image src={Discord} alt="Discord" /></a>
+                </li>
+                <li className="ml-8">
+                 <a href="https://www.twitter.com/awakenedwomanft"><Image src={Twitter} alt="Twitter" /></a>
+                </li>
+                <li className="ml-8">
+                  <a href="https://www.instagram.com/theawakenedwoman_nft/"><Image src={Instagram} alt="Instagram" /></a>
+                </li>
                   </ul>
                 </div>
               </div>
