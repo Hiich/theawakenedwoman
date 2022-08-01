@@ -3,10 +3,10 @@ import Image from "next/image";
 
 // Icons
 import Twitter from "../public/icons/twitter.svg";
-import Instagram from "../public/icons/instagram.svg";
+import Instagram from "../public/icons/instagraam.svg";
 import Discord from "../public/icons/discord.svg";
-import Telegram from "../public/icons/telegram.svg";
-import Facebook from "../public/icons/facebook.svg";
+// import Telegram from "../public/icons/telegram.svg";
+// import Facebook from "../public/icons/facebook.svg";
 
 //AwakenedWoman
 import AwakenedWoman from "../public/awakened/awakenedWomanImage.svg";
@@ -26,20 +26,20 @@ function Footer() {
             <div className="text-xl font-bold cursor-pointer" style={{'padding':'0.5rem'}}>
               <ul className="flex mr-px">
                 <li>
-                  <Image src={Discord} alt="Discord" />
+                  <a href="https://discord.gg/qnWpkv4tf8"><Image src={Discord} alt="Discord" /></a>
                 </li>
                 <li className="ml-8">
-                  <Image src={Twitter} alt="Twitter" />
+                 <a href="https://www.twitter.com/awakenedwomanft"><Image src={Twitter} alt="Twitter" /></a>
                 </li>
                 <li className="ml-8">
-                  <Image src={Instagram} alt="Instagram" />
+                  <a href="https://www.instagram.com/theawakenedwoman_nft/"><Image src={Instagram} alt="Instagram" /></a>
                 </li>
-                <li className="ml-8">
+                {/* <li className="ml-8">
                   <Image src={Telegram} alt="Instagram" />
                 </li>
                 <li className="ml-8">
                   <Image src={Facebook} alt="Instagram" />
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

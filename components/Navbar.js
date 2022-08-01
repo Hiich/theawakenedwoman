@@ -6,7 +6,7 @@ import Logo from "../public/logo.svg";
 
 // Icons
 import Twitter from "../public/icons/twitter.svg";
-import Instagram from "../public/icons/instagram.svg";
+import Instagram from "../public/icons/instagraam.svg";
 import Discord from "../public/icons/discord.svg";
 import Wallet from "../public/icons/Wallet.svg";
 

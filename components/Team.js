@@ -6,8 +6,7 @@ import Image from "next/image";
 
 // Icons
 import Twitter from "../public/icons/twitter-logo.svg";
-import Linkedin from "../public/icons/Linkedin.svg";
-import Dribbble from "../public/icons/dribbble.svg";
+import Instagram from "../public/icons/instagram.svg";
 
 function Team() {
   const [activeThumb, setActiveThumb] = useState(0);
@@ -82,21 +81,19 @@ function Team() {
                       <p className="mt-4 text-base leading-6 font-Poppins-Light">
                         {item.quote}
                       </p>
+                      <p className="mt-4 text-base leading-6 font-Poppins-Light">
+                        {item.quote2}
+                      </p>
                       <div className="mt-4">
                         <ul className="flex socials">
                           <li className="mr-4">
-                            <a href="#" className="w-1.5">
-                              <Image src={Twitter} alt="" />
-                            </a>
+                              <a href={item.socials.twitter} className="w-1.5">
+                                <Image src={Twitter} alt="" />
+                              </a>
                           </li>
                           <li className="mr-4">
-                            <a href="#" className="w-1.5">
-                              <Image src={Linkedin} alt="" />
-                            </a>
-                          </li>
-                          <li className="mr-4">
-                            <a href="#" className="w-1.5">
-                              <Image src={Dribbble} alt="" />
+                            <a href={item.socials.instagram} className="w-1.5">
+                              <Image src={Instagram} alt="" />
                             </a>
                           </li>
                         </ul>
