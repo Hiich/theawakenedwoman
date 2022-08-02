@@ -42,60 +42,70 @@ function RoadMap() {
               <li className="active first colored">
                 <div className="done">
                   <time className="text-xl font-semibold text-white font-V-Bold">
-                    This is a tooltip
+                    {data.RM_Card1.Title}
                   </time>
                   <p className="text-sm text-white font-Poppins-Light">
-                    Tooltips are used to describe or identify an element. In
-                    most scenario, tooltips help the user understand the
-                    meaning, function or alt-text of an element.
+                  {data.RM_Card1.body}
                   </p>
                 </div>
               </li>
               <li className="active">
                 <div className="done">
                   <time className="text-xl font-semibold text-white font-V-Bold">
-                    This is a tooltip
+                  {data.RM_Card2.Title}
                   </time>
                   <p className="text-sm text-white font-Poppins-Light">
-                    Tooltips are used to describe or identify an element. In
-                    most scenario, tooltips help the user understand the
-                    meaning, function or alt-text of an element.
+                  {data.RM_Card2.body}
                   </p>
                 </div>
               </li>
               <li className="active colored">
                 <div>
                   <time className="text-xl font-semibold text-white font-V-Bold">
-                    This is a tooltip
+                  {data.RM_Card3.Title}
                   </time>
                   <p className="text-sm text-white font-Poppins-Light">
-                    Tooltips are used to describe or identify an element. In
-                    most scenario, tooltips help the user understand the
-                    meaning, function or alt-text of an element.
+                  {data.RM_Card3.body}
                   </p>
                 </div>
               </li>
               <li className="active">
                 <div>
                   <time className="text-xl font-semibold text-white font-V-Bold">
-                    This is a tooltip
+                  {data.RM_Card4.Title}
                   </time>
                   <p className="text-sm text-white font-Poppins-Light">
-                    Tooltips are used to describe or identify an element. In
-                    most scenario, tooltips help the user understand the
-                    meaning, function or alt-text of an element.
+                  {data.RM_Card4.body}
                   </p>
                 </div>
               </li>
               <li className="active last">
                 <div>
                   <time className="text-xl font-semibold text-white font-V-Bold">
-                    This is a tooltip
+                  {data.RM_Card5.Title}
                   </time>
                   <p className="text-sm text-white font-Poppins-Light">
-                    Tooltips are used to describe or identify an element. In
-                    most scenario, tooltips help the user understand the
-                    meaning, function or alt-text of an element.
+                  {data.RM_Card5.body}
+                  </p>
+                </div>
+              </li>
+              <li className="active">
+                <div>
+                  <time className="text-xl font-semibold text-white font-V-Bold">
+                  {data.RM_Card6.Title}
+                  </time>
+                  <p className="text-sm text-white font-Poppins-Light">
+                  {data.RM_Card6.body}
+                  </p>
+                </div>
+              </li>
+              <li className="active last">
+                <div>
+                  <time className="text-xl font-semibold text-white font-V-Bold">
+                  {data.RM_Card7.Title}
+                  </time>
+                  <p className="text-sm text-white font-Poppins-Light">
+                  {data.RM_Card7.body}
                   </p>
                 </div>
               </li>

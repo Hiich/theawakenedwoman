@@ -32,7 +32,7 @@ module.exports = {
         "Poppins-Light": "Poppins-Light, sans-serif",
       },
       spacing: {
-        128: "553.54px",
+        128: "833.54px",
         939: "939px",
         154: "154.93px",
         55: "55.95px",
@@ -44,6 +44,7 @@ module.exports = {
         83: "83px",
         591: "591px",
         761: "761px",
+        768: "768px",
         447: "447.14px",
         554: "554px",
         112: "111.42px",
@@ -63,6 +64,9 @@ module.exports = {
         25: "-25px",
         36: "36px",
         45: "45px",
+        498:"498.33px",
+        568: "568px",
+        560: "560px",
       },
       borderWidth: {
         5: "5px",
@@ -77,6 +81,7 @@ module.exports = {
       team: "#F8D4BC",
       brown: "#46331E",
       BB9061: "#BB9061",
+      TextGold:"#F8D4BC"
     },
   },
   variants: {

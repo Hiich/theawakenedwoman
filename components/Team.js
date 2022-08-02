@@ -79,10 +79,10 @@ function Team() {
                         {item.name}
                       </h3>
                       <p className="mt-4 text-base leading-6 font-Poppins-Light">
-                        {item.quote}
+                        {item.quoteOne}
                       </p>
                       <p className="mt-4 text-base leading-6 font-Poppins-Light">
-                        {item.quote2}
+                        {item.quoteTwo}
                       </p>
                       <div className="mt-4">
                         <ul className="flex socials">

@@ -20,7 +20,7 @@ function Footer() {
             Join our community
           </h1>
           <p className="text-center text-white font-Poppins font-extralight w-536">
-            Iste animi consectetur dicta dolorem
+            Come and Join our Thriving Community in any of the Areas we Hang Out
           </p>
           <div className="flex items-center justify-center flex-shrink-0 mt-6">
             <div className="text-xl font-bold cursor-pointer" style={{'padding':'0.5rem'}}>

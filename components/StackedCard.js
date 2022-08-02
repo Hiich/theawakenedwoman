@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 // RotateBadge
-import RotateBadge from "../components/Fragment/CircleImage";
+// import RotateBadge from "../components/Fragment/CircleImage";
 // Icons
 import ImageIcon from "../public/icons/image.svg";
 import DOMPurify from "dompurify";
@@ -96,16 +96,16 @@ function StackedCard() {
                 />
               </li>
             </ul>
-            <div
+            {/* <div
               className={`absolute z-10 lg:right-80 top-64 md:top-96 ${
                 rotate ? "rotate" : ""
               }`}
             >
               <RotateBadge />
-            </div>
+            </div> */}
           </div>
 
-          <div className="relative w-80 md:w-90 lg:w-2/4">
+          <div className="relative w-80 md:w-90 lg:w-2/4 lg:mt-28">
             <div className="relative flex justify-center overflow-hidden text-left text-white h-122 h-600 min font-32 lg:w-554 font-Poppins-Light">
               {data.map((item, index) => {
                 return (
@@ -115,12 +115,24 @@ function StackedCard() {
                       activeTab == index ? "active" : ""
                     }`}
                   >
-                    <h3 className="pb-4 text-lg font-bold uppercase">
+                    {/* <h3 className="pb-4 text-lg font-bold uppercase">
                       {item.stackTitle}
-                    </h3>
+                    </h3> */}
                     <div
                       dangerouslySetInnerHTML={{
                         __html: sanitizer(item.stackText),
+                      }}
+                    />
+                    <br />
+                    <div className="text-TextGold"
+                      dangerouslySetInnerHTML={{
+                        __html: sanitizer(item.stackTextTwo),
+                      }}
+                    />
+                    <br />
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: sanitizer(item.stackTextThree),
                       }}
                     />
                   </div>

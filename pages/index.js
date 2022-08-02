@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import StackedCard from "../components/StackedCard";
 import Team from "../components/Team";
 import RoadMap from "../components/RoadMap";
+import Features from "../components/FeatureSection";
 export default function Home() {
   return (
     <div>
@@ -19,6 +20,7 @@ export default function Home() {
       <HeroSection />
       <StackedCard />
       <RoadMap />
+      <Features/>
       <Team />
       <Footer />
     </div>

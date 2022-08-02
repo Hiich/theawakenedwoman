@@ -13,7 +13,7 @@
     "dompurify": "^2.3.8",
     "flowbite": "^1.4.7",
     "jquery": "^3.6.0",
-    "next": "11.0.1",
+    "next": "^11.1.4",
     "promise-fs": "^2.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
