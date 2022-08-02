@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import FeaturesIcon from "../public/icons/Features.svg";
+import FeaturesIcon from "../public/icons/features.svg";
 import FeatureSide from "../public/features/content.png";
 import SecondFeatureSide from "../public/features/features.png";
 
