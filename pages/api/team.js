@@ -37,8 +37,8 @@ export default function handler(req, res) {
         original: "/OurTeam/3.jpeg",
       thumbnail: "/OurTeam/3.jpeg",
       socials: {
-        twitter: "",
-        instagram: "",
+        twitter: "https://twitter.com/adaihueze",
+        instagram: "https://www.instagram.com/berryldilty",
       },
     },
     {
@@ -50,7 +50,7 @@ export default function handler(req, res) {
       original: "/OurTeam/4.jpeg",
       thumbnail: "/OurTeam/4.jpeg",
       socials: {
-        twitter: "",
+        twitter: "https://twitter.com/KandyMeah",
         instagram: "",
       },
     },

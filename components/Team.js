@@ -26,7 +26,7 @@ function Team() {
   }, []);
 
   return (
-    <div className="relative flex justify-center py-20 overflow-hidden md:py-32 bg-team bg-bottom bg-contain bg-no-repeat bg-OT-pattern ">
+    <div className="relative flex justify-center py-20 overflow-hidden md:py-32 bg-team bg-bottom bg-contain bg-no-repeat bg-OT-pattern">
       <div className="relative z-10 w-1200">
         <div className="flex justify-center">
           <h1 className="text-center text-48 font-V-Bold">Our Team</h1>
@@ -57,7 +57,7 @@ function Team() {
             {data.map((item, index) => {
               return (
                 <li
-                  className={`h-80 flex py-12 md:py-20 slide w-full md:justify-center justify-start lg:items-center items-start ${
+                  className={`h-80 flex sm:flex-none py-12 md:py-20 slide w-full md:justify-center justify-start lg:items-center items-start ${
                     activeThumb == index ? "active" : ""
                   }`}
                   id={`slide-${index}`}
