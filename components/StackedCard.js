@@ -105,8 +105,8 @@ function StackedCard() {
             </div> */}
           </div>
 
-          <div className="relative w-80 md:w-90 lg:w-2/4 lg:mt-28">
-            <div className="relative flex justify-center overflow-hidden text-left text-white h-122 h-600 min font-32 lg:w-554 font-Poppins-Light">
+          <div className="relative w-80 md:w-90 lg:w-2/4 lg:mt-28 p-2">
+            <div className="relative flex justify-center overflow-hidden  text-left text-white h-122 h-600 min font-32 lg:w-554 font-Poppins-Light">
               {data.map((item, index) => {
                 return (
                   <div

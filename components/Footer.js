@@ -19,7 +19,7 @@ function Footer() {
           <h1 className="pt-24 text-3xl text-white pfont-normal tracking-headerSpace md:text-5xl font-V-Bold">
             Join our community
           </h1>
-          <p className="text-center text-white font-Poppins font-extralight w-536">
+          <p className="text-center text-white font-Poppins font-extralight lg:w-536 sm:w-100">
             Come and Join our Thriving Community in any of the Areas we Hang Out
           </p>
           <div className="flex items-center justify-center flex-shrink-0 mt-6">

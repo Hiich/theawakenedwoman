@@ -26,7 +26,7 @@ function HeroSection() {
   if (!data) return <p>No data</p>;
   return (
     <>
-      <div className="flex flex-col items-center justify-center pt-64 min-h-screen text-center bg-left-bottom bg-16 bg-no-repeat bg-hero-pattern -mb-44">
+      <div className="flex flex-col items-center justify-center pt-64 min-h-screen text-center bg-left-bottom bg-16 bg-no-repeat bg-hero-pattern -mb-32">
         <h1 className="text-5xl font-normal md:text-6xl lg:text-headerText tracking-headerSpace font-V-Bold">
           {data.Hero_Title}
         </h1>
