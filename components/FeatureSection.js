@@ -27,7 +27,7 @@ function FeatureSection() {
 
   return (
     <>
-   <div className="min-h-screen p-6 mb-32">
+   <div className="min-h-screen p-6 mb-8">
     <h1 className="lg:pl-16 text-4xl font-bold font-V-Bold lg:w-2/5  sm:pl-16 mb-6">{data.HeaderOne}</h1>
     <p className="lg:pl-16 lg:w-768 sm:w-100 font-Poppins-Light mb-12">{data.subHeader}</p>
 

@@ -2,7 +2,7 @@ export default function handler(req, res) {
   res.status(200).json([
     {
       jobTitle: "Founder",
-      name: "Anna Richards",
+      name: "Anna Rose",
       quoteOne:
         "Hello loves 👋🏻, Anna Rose is my name & business & women empowerment is my deepest life’s work & passion. I founded The Awakened Woman with that mission in mind. My zone of genius is both Entrepreneurship AND coaching & my superpower is building community – so this space is my dream x infinity.",
       quoteTwo:
