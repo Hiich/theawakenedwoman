@@ -82,7 +82,7 @@ module.exports = {
       team: "#F8D4BC",
       brown: "#46331E",
       BB9061: "#BB9061",
-      TextGold:"#F8D4BC"
+      TextPurple:"#681484"
     },
   },
   variants: {

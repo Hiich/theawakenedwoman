@@ -124,7 +124,7 @@ function StackedCard() {
                       }}
                     />
                     <br />
-                    <div className="text-TextGold"
+                    <div className="text-TextPurple text-Poppins font-bold"
                       dangerouslySetInnerHTML={{
                         __html: sanitizer(item.stackTextTwo),
                       }}

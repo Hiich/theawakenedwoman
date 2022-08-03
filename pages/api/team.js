@@ -25,8 +25,8 @@ export default function handler(req, res) {
       thumbnail: "/OurTeam/2.jpeg",
       // twitter: `https://twitter.com/nickabisou`,
       socials: {
-        twitter:"https://twitter.com/nickabisou",
-        instagram: "https://www.instagram.com/nickabisou",
+        twitter:"https://twitter.com/nikabisou",
+        instagram: "https://www.instagram.com/nikabisou",
       },
     },
     {
