@@ -26,7 +26,7 @@ function Team() {
   }, []);
 
   return (
-    <div className="relative flex justify-center py-20 overflow-hidden md:py-32 bg-team bg-bottom bg-contain bg-no-repeat bg-OT-pattern">
+    <div className="relative flex justify-center min-h-screen py-20 overflow-hidden md:py-32 bg-team bg-bottom bg-contain bg-no-repeat bg-OT-pattern">
       <div className="relative z-10 w-1200">
         <div className="flex justify-center">
           <h1 className="text-center text-48 font-V-Bold">Our Team</h1>
@@ -57,13 +57,13 @@ function Team() {
             {data.map((item, index) => {
               return (
                 <li
-                  className={`h-80 flex py-12 md:py-20 slide w-full md:justify-center justify-start lg:items-center items-start ${
+                  className={`h-full flex py-12 md:py-20 slide w-full md:justify-center justify-start lg:items-center items-start ${
                     activeThumb == index ? "active" : ""
                   }`}
                   id={`slide-${index}`}
                   key={index}
                 >
-                  <div className="h-80">
+                  <div className="h-full imageSlider">
                     <Image
                       src={item.original}
                       alt=""
@@ -72,7 +72,7 @@ function Team() {
                       className="object-cover rounded-xl"
                     />
                   </div>
-                  <div className="flex items-center justify-center ml-6 text-left md:ml-24 md:w-515">
+                  <div className="flex items-center justify-center ml-6 text-left md:ml-24 md:w-515 sm:w-100">
                     <div>
                       <h1 className="text-2xl font-V-Bold">{item.jobTitle}</h1>
                       <h3 className="text-sm font-Poppins-Light">

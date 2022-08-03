@@ -204,9 +204,14 @@
     width: 90%;
     margin: 0 auto;
   }
-  .slide-wrap,
-  .slide {
-    height: 300px;
+  .slide-wrap{
+    height: 800px;
+  }
+  .slide{
+    height: 800px;
+  }
+  .imageSlider{
+    display: none;
   }
 }
 #slide-0 {

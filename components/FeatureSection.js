@@ -34,23 +34,23 @@ function FeatureSection() {
     <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-2 gap-y-px">
       <div className="flex items-center justify-items-center">
         <ul className="lg:pl-16">
-          <li className="flex flex-wrap">
+          <li className="flex flex-wrap mb-6 lg:mb-0">
             <Image className="pb-6" src={FeaturesIcon} alt="FeaturesIcon" />
-            <div className="lg:w-498 sm:w-100 mt-6 ml-2 mb-12">
+            <div className="lg:w-498 sm:w-100 lg:mt-12 sm:mt-6  ml-2">
               <h4 className="text-Poppins font-bold text-xl">{data.FeatureList1.title}</h4>
               <p className="font-Poppins-Light text-base">{data.FeatureList1.body}</p>
             </div>
           </li>
-          <li className="flex flex-wrap">
+          <li className="flex flex-wrap mb-6 lg:mb-0">
             <Image src={FeaturesIcon} alt="FeaturesIcon" />
-            <div className="lg:w-498 sm:w-100 mt-6 ml-2 mb-12">
+            <div className="lg:w-498 sm:w-100 lg:mt-12 mt-6  ml-2">
               <h4 className="text-Poppins font-bold text-xl">{data.FeatureList2.title}</h4>
               <p className="font-Poppins-Light text-base">{data.FeatureList2.body}</p>
             </div>
           </li>
           <li className="flex flex-wrap mb-12 lg:mb-0">
             <Image src={FeaturesIcon} alt="FeaturesIcon" />
-            <div className="lg:w-498 sm:w-100 mt-6 ml-2 mb-12">
+            <div className="lg:w-498 sm:w-100 lg:mt-12 sm:mt-6  ml-2 mb-12">
               <h4 className="text-Poppins font-bold text-xl">{data.FeatureList3.title}</h4>
               <p className="font-Poppins-Light  text-base">{data.FeatureList3.body}</p>
             </div>
@@ -73,23 +73,23 @@ function FeatureSection() {
       </div>
       <div className="flex items-center justify-items-center">
         <ul className="lg:pl-16">
-          <li className="flex flex-wrap ">
+          <li className="flex flex-wrap mt-6 lg:mt-0 mb-6 lg:mb-0">
             <Image className="pb-6" src={FeaturesIcon} alt="FeaturesIcon" />
-            <div className="lg:w-498 sm:w-100 mt-6 ml-2 mb-12">
+            <div className="lg:w-498 sm:w-100 lg:mt-12 sm:mt-6  ml-2">
               <h4 className="text-Poppins font-bold text-xl">{data.FeatureList4.title}</h4>
               <p className="font-Poppins-Light text-base">{data.FeatureList4.body}</p>
             </div>
           </li>
-          <li className="flex flex-wrap ">
+          <li className="flex flex-wrap mb-6 lg:mb-0">
             <Image src={FeaturesIcon} alt="FeaturesIcon" />
-            <div className="lg:w-498 sm:w-100 mt-6 ml-2 mb-12">
+            <div className="lg:w-498 sm:w-100 lg:mt-12 sm:mt-6 ml-2">
               <h4 className="text-Poppins font-bold text-xl">{data.FeatureList5.title}</h4>
               <p className="font-Poppins-Light text-base">{data.FeatureList5.body}</p>
             </div>
           </li>
           <li className="flex flex-wrap mb-12 lg:mb-0">
-            <Image src={FeaturesIcon} alt="FeaturesIcon"/>
-            <div className="lg:w-498 sm:w-100 mt-6 ml-2 mb-12">
+            <Image src={FeaturesIcon} alt="FeaturesIcon" />
+            <div className="lg:w-498 sm:w-100 lg:mt-12 sm:mt-6  ml-2">
               <h4 className="text-Poppins font-bold text-xl">{data.FeatureList6.title}</h4>
               <p className="font-Poppins-Light  text-base">{data.FeatureList6.body}</p>
             </div>

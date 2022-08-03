@@ -31,9 +31,9 @@ function RoadMap() {
         <div className="flex justify-center ">
           <div className="text-center w-761">
             <h1 className="font-V-Bold text-48">{data.RM_Title}</h1>
-            <p className="px-8 text-sm sm:text-xl font-Poppins-Light">
+            {/* <p className="px-8 text-sm sm:text-xl font-Poppins-Light">
               {data.RM_Content}
-            </p>
+            </p> */}
           </div>
         </div>
         <div id="roadmap">

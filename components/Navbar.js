@@ -43,7 +43,7 @@ function Navbar() {
                   smooth={true}
                   offset={50}
                   duration={500}
-                  className="flex items-center justify-center px-3 py-2 space-x-4 text-sm font-medium text-white cursor-pointer md:h-56 rounded-xl bg-primary md:w-207"
+                  className="flex items-center justify-center px-3 lg:py-2 sm:py-4 space-x-4 text-sm font-medium text-white cursor-pointer md:h-56 rounded-xl bg-primary md:w-207 w-40"
                 >
                   <h1 className="mr-2 md:mr-4">Connet Wallet</h1>
                   <Image className="mt-6" src={Wallet} alt="wallet" />
