@@ -46,7 +46,7 @@ function StackedCard() {
   if (!data) return <p>No data</p>;
 
   return (
-    <div className="relative flex items-center justify-center lg:h-screen sm:min-h-screen bg-right overflow-hidden text-white py-28 bg-purple bg-no-repeat bg-right-top bg-ST-pattern font-Poppins">
+    <div className="relative flex items-center justify-center lg:h-full sm:min-h-screen bg-right overflow-hidden text-white py-28  bg-purple bg-no-repeat bg-right-top bg-ST-pattern font-Poppins">
       <div className="text-center font-V-Bold">
         <h1 className="mb-4 md:text-48 md:mb-16 font-V-Bold text-36">
           {data[0].stackHeader}
@@ -105,7 +105,7 @@ function StackedCard() {
             </div> */}
           </div>
 
-          <div className="relative lg:w-80 sm:w-100 md:w-90 lg:w-2/4 lg:mt-28 p-2">
+          <div className="relative lg:w-80 sm:w-100 md:w-90 lg:w-2/4 lg:mt-28 p-2 -mb-44">
             <div className="relative flex justify-center overflow-hidden sm:text-center lg:text-left text-white h-122 h-600 min font-32 lg:w-554 font-Poppins-Light">
               {data.map((item, index) => {
                 return (
