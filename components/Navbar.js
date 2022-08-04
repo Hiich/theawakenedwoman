@@ -46,7 +46,7 @@ function Navbar() {
                   className="flex items-center justify-center px-3 py-4 space-x-4 text-sm font-medium text-white cursor-pointer md:h-56 rounded-xl bg-primary md:w-207 w-40"
                 >
                   <h1 className="mr-2 md:mr-4">Connect Wallet</h1>
-                  <Image className="mt-6" src={Wallet} alt="wallet" />
+                  <Image className="mt-6" src={Wallet} alt="Wallet" />
                 </Link>
               </div>
             </div>
