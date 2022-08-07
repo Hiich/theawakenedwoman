@@ -44,14 +44,14 @@ function HeroSection() {
     setMintAmount(newMintAmount);
   };
 
-  const cost = 10000000000000000; //220000000000000000;
-  const CONTRACT_ADDRESS = "0x4911078574e0c05d14b293e9ec39979d29a9a79a"; //"0xC12803D3665b12940c2A7083c13CEB3cAa8c79FE";
+  const cost = 220000000000000000;
+  const CONTRACT_ADDRESS = "0xC12803D3665b12940c2A7083c13CEB3cAa8c79FE";
 
   const mintNft = async () => {
     await Moralis.enableWeb3();
     const totalWeiValue = String(cost * mintAmount);
     const sendOptions = {
-      chain: "rinkeby",
+      chain: "eth",
       contractAddress: CONTRACT_ADDRESS,
       functionName: "mint",
       abi: abi,
