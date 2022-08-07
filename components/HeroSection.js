@@ -60,17 +60,16 @@ function HeroSection() {
       msgValue: totalWeiValue,
     };
 
-    try {
-      const transaction = await Moralis.executeFunction(sendOptions);
-      // console.log(transaction);
-      toast.promise(transaction.wait(), {
-        loading: "Minting...",
-        success: "Successfully minted !",
-        error: "Error when minting",
-      });
-    } catch (e) {
-      toast.error("Failed to mint, check if you have enough funds.");
-    }
+    const transaction = Moralis.executeFunction(sendOptions);
+    // console.log(transaction);
+    toast.promise(transaction.wait(), {
+      loading: "Minting...",
+      success: "Successfully minted !",
+      error: "Error when minting",
+    });
+    // } catch (e) {
+    //   toast.error("Failed to mint, check if you have enough funds.");
+    // }
   };
 
   useEffect(() => {
