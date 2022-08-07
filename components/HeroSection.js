@@ -15,7 +15,6 @@ import abi from "../public/abi.json";
 function HeroSection() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
-
   const {
     authenticate,
     isAuthenticated,
@@ -61,12 +60,17 @@ function HeroSection() {
       msgValue: totalWeiValue,
     };
 
-    const transaction = await Moralis.executeFunction(sendOptions);
-    toast.promise(transaction.wait(), {
-      loading: "Minting...",
-      success: "Successfully minted !",
-      error: "Error when minting",
-    });
+    try {
+      const transaction = await Moralis.executeFunction(sendOptions);
+      // console.log(transaction);
+      toast.promise(transaction.wait(), {
+        loading: "Minting...",
+        success: "Successfully minted !",
+        error: "Error when minting",
+      });
+    } catch (e) {
+      toast.error("Failed to mint, check if you have enough funds.");
+    }
   };
 
   useEffect(() => {
