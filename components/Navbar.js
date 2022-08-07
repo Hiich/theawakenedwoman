@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
+import { ethers, utils} from "ethers";
 import { Link } from "react-scroll";
 import Image from "next/image";
 import Logo from "../public/logo.svg";
@@ -11,13 +12,82 @@ import Discord from "../public/icons/discord.svg";
 import Wallet from "../public/icons/Wallet.svg";
 
 function Navbar() {
+  const [currentAccount, setCurrentAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
+  const checkIfWalletIsConnected = async () => {
+    const { ethereum } = window;
+
+    if (!ethereum) {
+        console.log("Make sure you have metamask!");
+        return;
+    } else {
+        console.log("We have the ethereum object", ethereum);
+    }
+
+    /*
+    * Check if we're authorized to access the user's wallet
+    */
+    const accounts = await ethereum.request({ method: 'eth_accounts' });
+
+    /*
+    * User can have multiple authorized accounts, we grab the first one if its there!
+    */
+    if (accounts.length !== 0) {
+      const account = accounts[0];
+      console.log("Found an authorized account:", account);
+      setCurrentAccount(account);
+
+      let chainId = await ethereum.request({ method: 'eth_chainId' });
+console.log("Connected to chain " + chainId);
+
+// String, hex code of the chainId of the Rinkebey test network
+const rinkebyChainId = "0x4"; 
+if (chainId !== rinkebyChainId) {
+	alert("You are not connected to the Rinkeby Test Network!");
+}
+
+} else {
+  console.log("No authorized account found");
+}
+  }
+
+  const connectWallet = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (!ethereum) {
+        alert("Get MetaMask!");
+        return;
+      }
+
+      /*
+      * Fancy method to request access to account.
+      */
+      const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+
+      /*
+      * Boom! This should print out public address once we authorize Metamask.
+      */
+      console.log("Connected", accounts[0]);
+      setCurrentAccount(accounts[0]); 
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+ 
+
+
+
   return (
     <div>
       <nav className="fixed z-50 w-full bg-white shadow-sm">
         <div className="w-full">
-          <div className="flex items-center w-full h-20">
-            <div className="flex items-center justify-between w-full mx-8 md:mx-20">
+          <div className="flex items-center container mx-auto lg:w-1200 sm:w-full px-10 h-20">
+            <div className="flex items-center justify-between w-full">
               <div className="items-center justify-center flex-shrink-0 hidden md:flex">
                 <div className="hidden text-xl font-bold cursor-pointer md:block">
                   <ul className="flex mr-1.5">
@@ -39,7 +109,7 @@ function Navbar() {
               <div className="block">
                 <Link
                   activeClass="contact"
-                  to=""
+                  onClick={connectWallet}
                   smooth={true}
                   offset={50}
                   duration={500}

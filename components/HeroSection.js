@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
 import Image from "next/image";
 
 import ScrollImage from "../components/Fragment/ScrollImageNew";
@@ -47,10 +48,17 @@ function HeroSection() {
             <p className="flex items-center justify-items-center text-base text-Poppins-Light mr-8">{data.HeroStatsThree.value} <Image src={EthIcon} alt="image icon"/></p>
           </div>
         </div>
-        <div className="flex items-center justify-center text-sm font-medium text-white cursor-pointer rounded-xl mt-7 bg-primary w-154 h-55">
-          <h1 className="mr-4 text-center">{data.Hero_btn}</h1>
-          <Image src={ImageIcon} alt="image icon" />
-        </div>
+        <Link
+        smooth={true}
+        offset={50}
+        duration={500}
+         className="flex items-center justify-center text-sm font-medium text-white cursor-pointer rounded-xl mt-7 bg-primary w-154 h-55">
+          <h1 className="mr-4 text-center cursor-pointer">{data.Hero_btn}</h1>
+          <Image className="cursor-pointer" src={ImageIcon} alt="image icon" />
+        </Link>
+
+
+       
         
       </div>
       <div className="w-full overflow-hidden ">
