@@ -51,7 +51,7 @@ function HeroSection() {
     await Moralis.enableWeb3();
     const totalWeiValue = String(cost * mintAmount);
     const sendOptions = {
-      chain: "eth",
+      chain: "mainnet",
       contractAddress: CONTRACT_ADDRESS,
       functionName: "mint",
       abi: abi,
