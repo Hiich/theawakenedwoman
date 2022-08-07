@@ -60,16 +60,19 @@ function HeroSection() {
       msgValue: totalWeiValue,
     };
 
-    const transaction = Moralis.executeFunction(sendOptions);
-    // console.log(transaction);
-    toast.promise(transaction.wait(), {
-      loading: "Minting...",
-      success: "Successfully minted !",
-      error: "Error when minting",
-    });
-    // } catch (e) {
-    //   toast.error("Failed to mint, check if you have enough funds.");
-    // }
+    const transaction = Moralis.executeFunction(sendOptions)
+      .then((tx) => {
+        toast.promise(tx.wait(), {
+          loading: "Minting...",
+          success: "Successfully minted !",
+          error: "Error when minting",
+        });
+      })
+      .catch((e) =>
+        toast.error(
+          "Could not mint, please check your balance or that you are connected."
+        )
+      );
   };
 
   useEffect(() => {
@@ -81,7 +84,6 @@ function HeroSection() {
         setLoading(false);
       });
   }, []);
-
   if (isLoading) return <p>Loading StackedCard</p>;
   if (!data) return <p>No data</p>;
   return (
@@ -120,61 +122,73 @@ function HeroSection() {
             </p>
           </div>
         </div>
-        <div className="mt-4">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              decrementMintAmount();
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
+        {account && (
+          <div>
+            <div className="mt-4">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  decrementMintAmount();
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M20 12H4"
+                  />
+                </svg>
+              </button>
+              <span className="text-3xl mx-4 ">{mintAmount}</span>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  incrementMintAmount();
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 4v16m8-8H4"
+                  />
+                </svg>
+              </button>
+            </div>
+            <Link
+              smooth={true}
+              offset={50}
+              duration={500}
+              className="flex items-center justify-center text-sm font-medium text-white cursor-pointer rounded-xl mt-7 bg-primary w-154 h-55"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
-            </svg>
-          </button>
-          <span className="text-3xl mx-4 ">{mintAmount}</span>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              incrementMintAmount();
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4v16m8-8H4"
+              <button
+                className="mr-4 text-center cursor-pointer"
+                onClick={() => mintNft(mintAmount)}
+              >
+                {data.Hero_btn}
+              </button>
+              <Image
+                className="cursor-pointer"
+                src={ImageIcon}
+                alt="image icon"
               />
-            </svg>
-          </button>
-        </div>
-        <Link
-          smooth={true}
-          offset={50}
-          duration={500}
-          className="flex items-center justify-center text-sm font-medium text-white cursor-pointer rounded-xl mt-7 bg-primary w-154 h-55"
-        >
-          <button
-            className="mr-4 text-center cursor-pointer"
-            onClick={() => mintNft(mintAmount)}
-          >
-            {data.Hero_btn}
-          </button>
-          <Image className="cursor-pointer" src={ImageIcon} alt="image icon" />
-        </Link>
+            </Link>
+          </div>
+        )}
       </div>
       <div className="w-full overflow-hidden ">
         <ScrollImage />
