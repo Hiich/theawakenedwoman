@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
-import { ethers, utils} from "ethers";
+import { ethers, utils } from "ethers";
 import { Link } from "react-scroll";
 import Image from "next/image";
 import Logo from "../public/logo.svg";
@@ -10,77 +10,84 @@ import Twitter from "../public/icons/twitter.svg";
 import Instagram from "../public/icons/instagraam.svg";
 import Discord from "../public/icons/discord.svg";
 import Wallet from "../public/icons/Wallet.svg";
+import Moralis from "moralis";
+import { useMoralis } from "react-moralis";
 
 function Navbar() {
   const [currentAccount, setCurrentAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const {
+    authenticate,
+    isAuthenticated,
+    isAuthenticating,
+    user,
+    account,
+    logout,
+  } = useMoralis();
 
   const checkIfWalletIsConnected = async () => {
     const { ethereum } = window;
 
     if (!ethereum) {
-        console.log("Make sure you have metamask!");
-        return;
+      console.log("Make sure you have metamask!");
+      return;
     } else {
-        console.log("We have the ethereum object", ethereum);
+      console.log("We have the ethereum object", ethereum);
     }
 
     /*
-    * Check if we're authorized to access the user's wallet
-    */
-    const accounts = await ethereum.request({ method: 'eth_accounts' });
+     * Check if we're authorized to access the user's wallet
+     */
+    const accounts = await ethereum.request({ method: "eth_accounts" });
 
     /*
-    * User can have multiple authorized accounts, we grab the first one if its there!
-    */
+     * User can have multiple authorized accounts, we grab the first one if its there!
+     */
     if (accounts.length !== 0) {
       const account = accounts[0];
       console.log("Found an authorized account:", account);
       setCurrentAccount(account);
 
-      let chainId = await ethereum.request({ method: 'eth_chainId' });
-console.log("Connected to chain " + chainId);
+      let chainId = await ethereum.request({ method: "eth_chainId" });
+      console.log("Connected to chain " + chainId);
 
-// String, hex code of the chainId of the Rinkebey test network
-const rinkebyChainId = "0x4"; 
-if (chainId !== rinkebyChainId) {
-	alert("You are not connected to the Rinkeby Test Network!");
-}
-
-} else {
-  console.log("No authorized account found");
-}
-  }
+      // String, hex code of the chainId of the Rinkebey test network
+      const rinkebyChainId = "0x4";
+      if (chainId !== rinkebyChainId) {
+        alert("You are not connected to the Rinkeby Test Network!");
+      }
+    } else {
+      console.log("No authorized account found");
+    }
+  };
 
   const connectWallet = async () => {
-    try {
-      const { ethereum } = window;
+    await Moralis.enableWeb3();
+    console.log(account);
+    // try {
+    //   const { ethereum } = window;
 
-      if (!ethereum) {
-        alert("Get MetaMask!");
-        return;
-      }
+    //   if (!ethereum) {
+    //     alert("Get MetaMask!");
+    //     return;
+    //   }
 
-      /*
-      * Fancy method to request access to account.
-      */
-      const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+    //   /*
+    //    * Fancy method to request access to account.
+    //    */
+    //   const accounts = await ethereum.request({
+    //     method: "eth_requestAccounts",
+    //   });
 
-      /*
-      * Boom! This should print out public address once we authorize Metamask.
-      */
-      console.log("Connected", accounts[0]);
-      setCurrentAccount(accounts[0]); 
-
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-
- 
-
-
+    //   /*
+    //    * Boom! This should print out public address once we authorize Metamask.
+    //    */
+    //   console.log("Connected", accounts[0]);
+    //   setCurrentAccount(accounts[0]);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  };
 
   return (
     <div>
@@ -91,34 +98,42 @@ if (chainId !== rinkebyChainId) {
               <div className="items-center justify-center flex-shrink-0 hidden md:flex">
                 <div className="hidden text-xl font-bold cursor-pointer md:block">
                   <ul className="flex mr-1.5">
-                  <li>
-                  <a href="https://discord.gg/qnWpkv4tf8"><Image src={Discord} alt="Discord" /></a>
-                </li>
-                <li className="ml-8">
-                 <a href="https://www.twitter.com/awakenedwomanft"><Image src={Twitter} alt="Twitter" /></a>
-                </li>
-                <li className="ml-8">
-                  <a href="https://www.instagram.com/theawakenedwoman_nft/"><Image src={Instagram} alt="Instagram" /></a>
-                </li>
+                    <li>
+                      <a href="https://discord.gg/qnWpkv4tf8">
+                        <Image src={Discord} alt="Discord" />
+                      </a>
+                    </li>
+                    <li className="ml-8">
+                      <a href="https://www.twitter.com/awakenedwomanft">
+                        <Image src={Twitter} alt="Twitter" />
+                      </a>
+                    </li>
+                    <li className="ml-8">
+                      <a href="https://www.instagram.com/theawakenedwoman_nft/">
+                        <Image src={Instagram} alt="Instagram" />
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>
-              <div  className="flex w-40 text-xl font-bold cursor-pointer md:w-52">
-                  <Image src={Logo} alt="" />
+              <div className="flex w-40 text-xl font-bold cursor-pointer md:w-52">
+                <Image src={Logo} alt="" />
               </div>
-              <div className="block">
-                <Link
-                  activeClass="contact"
-                  onClick={connectWallet}
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className="flex items-center justify-center px-3 py-4 space-x-4 text-sm font-medium text-white cursor-pointer md:h-56 rounded-xl bg-primary md:w-207 w-40"
-                >
-                  <h1 className="mr-2 md:mr-4">Connect Wallet</h1>
-                  <Image className="mt-6" src={Wallet} alt="Wallet" />
-                </Link>
-              </div>
+              {!account && (
+                <div className="block">
+                  <Link
+                    activeClass="contact"
+                    onClick={connectWallet}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className="flex items-center justify-center px-3 py-4 space-x-4 text-sm font-medium text-white cursor-pointer md:h-56 rounded-xl bg-primary md:w-207 w-40"
+                  >
+                    <h1 className="mr-2 md:mr-4">Connect Wallet</h1>
+                    <Image className="mt-6" src={Wallet} alt="Wallet" />
+                  </Link>
+                </div>
+              )}
             </div>
             {/* <div className="flex mr-10 md:hidden ">
 							<button

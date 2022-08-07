@@ -4,14 +4,70 @@ import { Link } from "react-scroll";
 import Image from "next/image";
 
 import ScrollImage from "../components/Fragment/ScrollImageNew";
-
+import { useMoralis } from "react-moralis";
+import Moralis from "moralis";
+import toast, { Toaster } from "react-hot-toast";
 // Icons
 import ImageIcon from "../public/icons/image.svg";
 import EthIcon from "../public/icons/eth.svg";
+import abi from "../public/abi.json";
 
 function HeroSection() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
+
+  const {
+    authenticate,
+    isAuthenticated,
+    isAuthenticating,
+    user,
+    account,
+    logout,
+  } = useMoralis();
+
+  const [mintAmount, setMintAmount] = useState(1);
+
+  const decrementMintAmount = () => {
+    let newMintAmount = mintAmount - 1;
+    if (newMintAmount < 1) {
+      newMintAmount = 1;
+    }
+    setMintAmount(newMintAmount);
+  };
+
+  const incrementMintAmount = () => {
+    let newMintAmount = mintAmount + 1;
+    if (newMintAmount > 5) {
+      toast.error("Max mintable amount is 5 per transaction");
+      newMintAmount = 5;
+    }
+    setMintAmount(newMintAmount);
+  };
+
+  const cost = 10000000000000000; //220000000000000000;
+  const CONTRACT_ADDRESS = "0x4911078574e0c05d14b293e9ec39979d29a9a79a"; //"0xC12803D3665b12940c2A7083c13CEB3cAa8c79FE";
+
+  const mintNft = async () => {
+    await Moralis.enableWeb3();
+    const totalWeiValue = String(cost * mintAmount);
+    const sendOptions = {
+      chain: "rinkeby",
+      contractAddress: CONTRACT_ADDRESS,
+      functionName: "mint",
+      abi: abi,
+      params: {
+        quantity: mintAmount,
+      },
+      msgValue: totalWeiValue,
+    };
+
+    const transaction = await Moralis.executeFunction(sendOptions);
+    toast.promise(transaction.wait(), {
+      loading: "Minting...",
+      success: "Successfully minted !",
+      error: "Error when minting",
+    });
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -36,34 +92,93 @@ function HeroSection() {
         </p>
         <div className="grid grid-cols-3 gap-x-4 mt-6">
           <div>
-            <h3 className="text-primary font-V-Bold text-lg">{data.HeroStatsOne.title}</h3>
-            <p className="text-base text-Poppins-Light">{data.HeroStatsOne.value}</p>
+            <h3 className="text-primary font-V-Bold text-lg">
+              {data.HeroStatsOne.title}
+            </h3>
+            <p className="text-base text-Poppins-Light">
+              {data.HeroStatsOne.value}
+            </p>
           </div>
           <div>
-            <h3 className="text-primary font-V-Bold text-lg">{data.HeroStatsTwo.title}</h3>
-            <p className="text-base text-Poppins-Light">{data.HeroStatsTwo.value}</p>
+            <h3 className="text-primary font-V-Bold text-lg">
+              {data.HeroStatsTwo.title}
+            </h3>
+            <p className="text-base text-Poppins-Light">
+              {data.HeroStatsTwo.value}
+            </p>
           </div>
           <div>
-            <h3 className="text-primary font-V-Bold text-lg">{data.HeroStatsThree.title}</h3>
-            <p className="flex items-center justify-items-center text-base text-Poppins-Light mr-8">{data.HeroStatsThree.value} <Image src={EthIcon} alt="image icon"/></p>
+            <h3 className="text-primary font-V-Bold text-lg">
+              {data.HeroStatsThree.title}
+            </h3>
+            <p className="flex items-center justify-items-center text-base text-Poppins-Light mr-8">
+              {data.HeroStatsThree.value}{" "}
+              <Image src={EthIcon} alt="image icon" />
+            </p>
           </div>
+        </div>
+        <div className="mt-4">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              decrementMintAmount();
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
+            </svg>
+          </button>
+          <span className="text-3xl mx-4 ">{mintAmount}</span>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              incrementMintAmount();
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 4v16m8-8H4"
+              />
+            </svg>
+          </button>
         </div>
         <Link
-        smooth={true}
-        offset={50}
-        duration={500}
-         className="flex items-center justify-center text-sm font-medium text-white cursor-pointer rounded-xl mt-7 bg-primary w-154 h-55">
-          <h1 className="mr-4 text-center cursor-pointer">{data.Hero_btn}</h1>
+          smooth={true}
+          offset={50}
+          duration={500}
+          className="flex items-center justify-center text-sm font-medium text-white cursor-pointer rounded-xl mt-7 bg-primary w-154 h-55"
+        >
+          <button
+            className="mr-4 text-center cursor-pointer"
+            onClick={() => mintNft(mintAmount)}
+          >
+            {data.Hero_btn}
+          </button>
           <Image className="cursor-pointer" src={ImageIcon} alt="image icon" />
         </Link>
-
-
-       
-        
       </div>
       <div className="w-full overflow-hidden ">
-          <ScrollImage />
-        </div>
+        <ScrollImage />
+      </div>
+      <div>
+        <Toaster />
+      </div>
     </>
   );
 }
