@@ -47,6 +47,7 @@ function HeroSection() {
   const CONTRACT_ADDRESS = "0xC12803D3665b12940c2A7083c13CEB3cAa8c79FE";
 
   const mintNft = async () => {
+    console.log("Minting...");
     await Moralis.enableWeb3();
     const totalWeiValue = String(cost * mintAmount);
     const sendOptions = {
@@ -123,7 +124,7 @@ function HeroSection() {
           </div>
         </div>
         {account && (
-          <div>
+          <div className="z-10">
             <div className="mt-4">
               <button
                 onClick={(e) => {
@@ -168,25 +169,18 @@ function HeroSection() {
                   />
                 </svg>
               </button>
-            </div>
-            <Link
-              smooth={true}
-              offset={50}
-              duration={500}
-              className="flex items-center justify-center text-sm font-medium text-white cursor-pointer rounded-xl mt-7 bg-primary w-154 h-55"
-            >
+
               <button
-                className="mr-4 text-center cursor-pointer"
-                onClick={() => mintNft(mintAmount)}
+                className="flex items-center justify-center text-sm 
+                font-medium text-white cursor-pointer rounded-xl mt-7 bg-primary w-154 h-55 z-20"
+                onClick={() => {
+                  console.log("Clicking on mint mobile");
+                  mintNft(mintAmount);
+                }}
               >
                 {data.Hero_btn}
               </button>
-              <Image
-                className="cursor-pointer"
-                src={ImageIcon}
-                alt="image icon"
-              />
-            </Link>
+            </div>
           </div>
         )}
       </div>
