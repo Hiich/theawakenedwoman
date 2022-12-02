@@ -1,28 +1,19 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link } from "react-scroll";
 import Image from "next/image";
 
 import ScrollImage from "../components/Fragment/ScrollImageNew";
-import { useMoralis } from "react-moralis";
-import Moralis from "moralis";
 import toast, { Toaster } from "react-hot-toast";
 // Icons
-import ImageIcon from "../public/icons/image.svg";
 import EthIcon from "../public/icons/eth.svg";
 import abi from "../public/abi.json";
+import { ethers } from "ethers";
+import useDappStore from "../hooks/useDappStore";
 
 function HeroSection() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
-  const {
-    authenticate,
-    isAuthenticated,
-    isAuthenticating,
-    user,
-    account,
-    logout,
-  } = useMoralis();
+  const { account } = useDappStore();
 
   const [mintAmount, setMintAmount] = useState(1);
 
@@ -43,37 +34,27 @@ function HeroSection() {
     setMintAmount(newMintAmount);
   };
 
-  const cost = 220000000000000000;
+  const cost = 0.22;
   const CONTRACT_ADDRESS = "0xC12803D3665b12940c2A7083c13CEB3cAa8c79FE";
 
   const mintNft = async () => {
-    console.log("Minting...");
-    await Moralis.enableWeb3();
-    const totalWeiValue = String(cost * mintAmount);
-    const sendOptions = {
-      chain: "mainnet",
-      contractAddress: CONTRACT_ADDRESS,
-      functionName: "mint",
-      abi: abi,
-      params: {
-        quantity: mintAmount,
-      },
-      msgValue: totalWeiValue,
-    };
+    if (!account) {
+      toast.error("Connect wallet to mint NFT");
+      return;
+    }
 
-    const transaction = Moralis.executeFunction(sendOptions)
-      .then((tx) => {
-        toast.promise(tx.wait(), {
-          loading: "Minting...",
-          success: "Successfully minted !",
-          error: "Error when minting",
-        });
-      })
-      .catch((e) =>
-        toast.error(
-          "Could not mint, please check your balance or that you are connected."
-        )
-      );
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
+    console.log("🚀 ~ file: HeroSection.js:49 ~ mintNft ~ contract", contract)
+    const totalCostInWei = ethers.utils.parseEther((cost * mintAmount).toString());
+    const tx = await contract.mint(mintAmount, { value: totalCostInWei });
+    toast.promise(tx.wait(),
+      {
+        loading: "Minting...",
+        success: "Successfully minted",
+        error: "Error minting NFT",
+      });
   };
 
   useEffect(() => {

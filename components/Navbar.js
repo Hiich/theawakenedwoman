@@ -4,90 +4,74 @@ import { ethers, utils } from "ethers";
 import { Link } from "react-scroll";
 import Image from "next/image";
 import Logo from "../public/logo.svg";
-
 // Icons
 import Twitter from "../public/icons/twitter.svg";
 import Instagram from "../public/icons/instagraam.svg";
 import Discord from "../public/icons/discord.svg";
 import Wallet from "../public/icons/Wallet.svg";
-import Moralis from "moralis";
-import { useMoralis } from "react-moralis";
+import useDappStore from "../hooks/useDappStore";
+import toast, { Toaster } from "react-hot-toast";
 
 function Navbar() {
-  const [currentAccount, setCurrentAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const {
-    authenticate,
-    isAuthenticated,
-    isAuthenticating,
-    user,
-    account,
-    logout,
-  } = useMoralis();
-
-  const checkIfWalletIsConnected = async () => {
-    const { ethereum } = window;
-
-    if (!ethereum) {
-      console.log("Make sure you have metamask!");
-      return;
-    } else {
-      console.log("We have the ethereum object", ethereum);
-    }
-
-    /*
-     * Check if we're authorized to access the user's wallet
-     */
-    const accounts = await ethereum.request({ method: "eth_accounts" });
-
-    /*
-     * User can have multiple authorized accounts, we grab the first one if its there!
-     */
-    if (accounts.length !== 0) {
-      const account = accounts[0];
-      console.log("Found an authorized account:", account);
-      setCurrentAccount(account);
-
-      let chainId = await ethereum.request({ method: "eth_chainId" });
-      console.log("Connected to chain " + chainId);
-
-      // String, hex code of the chainId of the Rinkebey test network
-      const rinkebyChainId = "0x4";
-      if (chainId !== rinkebyChainId) {
-        alert("You are not connected to the Rinkeby Test Network!");
-      }
-    } else {
-      console.log("No authorized account found");
-    }
-  };
+  const { account, setAccount } = useDappStore();
 
   const connectWallet = async () => {
-    await Moralis.enableWeb3();
-    console.log(account);
-    // try {
-    //   const { ethereum } = window;
+    if (window.ethereum) {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      try {
+        await provider.send(
+          'wallet_switchEthereumChain',
+          [
+            {
+              chainId: '0x1',
+            }
+          ]);
+      } catch (err) {
+        console.log(err);
+      }
 
-    //   if (!ethereum) {
-    //     alert("Get MetaMask!");
-    //     return;
-    //   }
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
 
-    //   /*
-    //    * Fancy method to request access to account.
-    //    */
-    //   const accounts = await ethereum.request({
-    //     method: "eth_requestAccounts",
-    //   });
-
-    //   /*
-    //    * Boom! This should print out public address once we authorize Metamask.
-    //    */
-    //   console.log("Connected", accounts[0]);
-    //   setCurrentAccount(accounts[0]);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+      setAccount(accounts[0]);
+    } else {
+      toast.error("Install Metamask");
+    }
   };
+
+  const checkIfWalletIsConnected = async () => {
+    console.log("Checking for account");
+    if (window.ethereum) {
+      //check if account is connected
+      const accounts = await window.ethereum.request({
+        method: "eth_accounts",
+      });
+
+      if (accounts.length !== 0) {
+        console.log("🚀 ~ file: Navbar.js:33 ~ useEffect ~ accounts", accounts)
+        setAccount(accounts[0]);
+
+
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        try {
+          await provider.send(
+            'wallet_switchEthereumChain',
+            [
+              {
+                chainId: '0x1',
+              }
+            ]);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    }
+  }
+  useEffect(() => {
+    checkIfWalletIsConnected();
+  }, []);
 
   return (
     <div>
@@ -135,50 +119,6 @@ function Navbar() {
                 </div>
               )}
             </div>
-            {/* <div className="flex mr-10 md:hidden ">
-							<button
-								onClick={() => setIsOpen(!isOpen)}
-								type="button"
-								className="inline-flex items-center justify-center p-2 text-white rounded-md bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
-								aria-controls="mobile-menu"
-								aria-expanded="false"
-							>
-								<span className="sr-only">Open main menu</span>
-								{!isOpen ? (
-									<svg
-										className="block w-6 h-6"
-										xmlns="http://www.w3.org/2000/svg"
-										fill="none"
-										viewBox="0 0 24 24"
-										stroke="currentColor"
-										aria-hidden="true"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth="2"
-											d="M4 6h16M4 12h16M4 18h16"
-										/>
-									</svg>
-								) : (
-									<svg
-										className="block w-6 h-6"
-										xmlns="http://www.w3.org/2000/svg"
-										fill="none"
-										viewBox="0 0 24 24"
-										stroke="currentColor"
-										aria-hidden="true"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth="2"
-											d="M6 18L18 6M6 6l12 12"
-										/>
-									</svg>
-								)}
-							</button>
-						</div> */}
           </div>
         </div>
 
